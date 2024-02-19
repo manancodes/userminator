@@ -1,16 +1,12 @@
-"use client";
 import React from "react";
 import Image from "next/image";
 
-const githubCard = () => {
+const GithubCard = () => {
   return (
-    <div className="group flex flex-col space-y-6 h-[240px] relative cursor-pointer overflow-hidden rounded-xl bg-neutral-800 p-6">
+    <div className="group flex flex-col space-y-6 h-full relative cursor-pointer overflow-hidden rounded-xl bg-neutral-800 p-6">
       <div className="flex flex-row items-center justify-between">
-        <div className="z-20 flex flex-row items-center justify-center space-x-3">
-          <div className="flex flex-col items-start ">
-            {/* <h3 className="z-20 text-base font-semibold">Github</h3> */}
-            <p className="text-3xl text-neutral-100">Github</p>
-          </div>
+        <div className="z-20 flex flex-col items-start ">
+          <p className="text-3xl text-neutral-100">Github</p>
         </div>
         <div>
           <span className="absolute right-6 top-6 z-0 h-12 w-12 rounded-full drop-shadow-md bg-neutral-600 transition-all duration-300 group-hover:scale-[20]"></span>
@@ -28,12 +24,10 @@ const githubCard = () => {
         </div>
       </div>
       <div className="z-20 ">
-        <h1 className="text-xl  group-hover:text-white">
-          This is a free and open source project
-        </h1>
+        <h1 className="text-xl">This is a free and open source project</h1>
       </div>
       <button
-        className="z-20 text-sm font-medium border-2 p-1 py-2 rounded-full flex flex-row items-center justify-center group-hover:text-white absolute bottom-6 self-center w-10/12 group-hover:border-white group-hover:bg-white group-hover:text-neutral-600"
+        className="z-20 text-sm font-medium border-2 p-1 py-2 rounded-full flex flex-row items-center justify-center absolute bottom-6 self-center w-10/12 group-hover:border-white group-hover:bg-white group-hover:text-neutral-600"
         onClick={() => {
           window.open("https://github.com/manancodes/userminator", "_blank");
         }}
@@ -58,4 +52,4 @@ const githubCard = () => {
   );
 };
 
-export default githubCard;
+export default GithubCard;

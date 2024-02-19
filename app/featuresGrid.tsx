@@ -1,11 +1,14 @@
-import GithubCard from "./githubCard";
+// FeaturesGrid.js
+
+import React from "react";
 import SocialIcons from "./SocialIcons";
+import GithubCard from "./githubCard";
 
 const FeaturesGrid = () => {
   return (
-    <div className="pt-16 bg-neutral-900 text-white flex flex-col items-center justify-center p-32">
-      <div className="grid auto-rows grid-cols-3 gap-6">
-        <div className="flex flex-col items-center justify-between row-span-1 rounded-xl p-4 bg-neutral-800 col-span-2">
+    <div className="pt-16 bg-neutral-900 text-white flex flex-col items-center justify-center lg:p-32">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-y-6 xl:gap-x-6">
+        <div className="min-h-[260px] flex flex-col items-center justify-between rounded-xl p-4 bg-neutral-800 col-span-2">
           <p className="text-3xl text-neutral-100 mb-4">
             One handle for everything
           </p>
@@ -15,17 +18,13 @@ const FeaturesGrid = () => {
           </p>
           <SocialIcons />
         </div>
-        <div className="row-span-1 rounded-xl bg-neutral-800">
+        <div className="rounded-xl min-h-[260px] bg-neutral-800">
           <GithubCard />
         </div>
         {/* <div className="row-span-1 rounded-xl p-4 bg-neutral-800"></div>
         <div className="row-span-1 rounded-xl p-4 bg-neutral-800 col-span-2 row-span-2"></div>
         <div className="row-span-1 rounded-xl p-4 bg-neutral-800"></div> */}
       </div>
-
-      <footer className="mt-8 text-xs text-neutral-500">
-        &copy; 2023 Username Checker. All rights reserved.
-      </footer>
     </div>
   );
 };
