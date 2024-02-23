@@ -9,6 +9,11 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [searchUsed, setSearchUsed] = useState(false);
 
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSearchUsed(true);
+  }
+
   return (
     <>
       <div className="flex justify-center p-1 bg-neutral-950">
@@ -24,7 +29,7 @@ const Home = () => {
             Find Your Perfect Username Today!
           </p>
           <div className="flex items-center justify-center">
-            <div className="flex items-center justify-between space-x-2 bg-neutral-900 border border-neutral-600 text-white rounded-full p-2 w-full sm:w-96">
+            <form onSubmit={handleSearch} className="flex items-center justify-between space-x-2 bg-neutral-900 border border-neutral-600 text-white rounded-full p-2 w-full sm:w-96">
               <input
                 type="text"
                 placeholder="Enter a username"
@@ -38,9 +43,7 @@ const Home = () => {
               />
               <button
                 className="bg-neutral-700 hover:bg-neutral-600 text-white rounded-full p-2 transition-colors focus:outline-none"
-                onClick={() => {
-                  setSearchUsed(true);
-                }}
+                type="submit"
               >
                 <Image
                   src="/arrow-ne.svg"
@@ -51,7 +54,7 @@ const Home = () => {
                   priority
                 />
               </button>
-            </div>
+            </form>
           </div>
         </div>
         {searchUsed ? (
