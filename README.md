@@ -23,17 +23,8 @@ To use Userminator, follow these steps:
 Contributions are welcome! Whether you're a developer, designer, or just have a suggestion, feel free to [open an issue](https://github.com/manancodes/userminator/issues/new) or submit a pull request:
 1. Fork this repository.
 2. Clone the forked repository to your local machine.
-3. Install dependencies using `npm install`.
-4. Start the development server with:
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    # or
-    bun dev
-    ```
+3. Install dependencies using `bun install`.
+4. Start the development server with `bun dev`.
 5. Make your changes and ensure tests pass.
 6. Commit your changes and push them to your fork.
 7. Submit a pull request with a clear description of your changes.
