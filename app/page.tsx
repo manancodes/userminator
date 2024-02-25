@@ -1,26 +1,39 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
-import FeaturesGrid from "./featuresGrid";
-import ResultsGrid from "./resultsGrid";
+import FeaturesGrid from "./Components/featuresGrid";
+import ResultsGrid from "./Components/resultsGrid";
 import socialMediaPlatforms from "./mockData/socialMediaData";
+import SearchInput from "./Components/SearchInput";
 
-const Home = () => {
-  const [search, setSearch] = useState("");
-  const [searchUsed, setSearchUsed] = useState(false);
+const Home: React.FC = () => {
+  const [search, setSearch] = useState<string>("");
+  const [searchUsed, setSearchUsed] = useState<boolean>(false);
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSearchUsed(true);
-  }
+    if (search) {
+      setSearchUsed(true);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+    if (!e.target.value) {
+      setSearchUsed(false);
+    }
+  };
+
+  const handleClearSearch = () => {
+    setSearch("");
+    setSearchUsed(false);
+  };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-neutral-900">
       <div className="flex justify-center p-1 bg-neutral-950">
         This project is still under development
       </div>
-
-      <div className="min-h-screen bg-neutral-900 text-white flex flex-col items-center justify-center p-8 md:p-16 xl:p-32">
+      <div className="flex-grow text-white flex flex-col items-center p-8 md:p-16 xl:p-32">
         <div className="text-center">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold">
             Unleash Your Digital Identity
@@ -29,32 +42,13 @@ const Home = () => {
             Find Your Perfect Username Today!
           </p>
           <div className="flex items-center justify-center">
-            <form onSubmit={handleSearch} className="flex items-center justify-between space-x-2 bg-neutral-900 border border-neutral-600 text-white rounded-full p-2 w-full sm:w-96">
-              <input
-                type="text"
-                placeholder="Enter a username"
-                className="pl-6 bg-neutral-900 text-white placeholder-neutral-500 p-2 focus:outline-none w-full"
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  if (!e.target.value) {
-                    setSearchUsed(false);
-                  }
-                }}
-              />
-              <button
-                className="bg-neutral-700 hover:bg-neutral-600 text-white rounded-full p-2 transition-colors focus:outline-none"
-                type="submit"
-              >
-                <Image
-                  src="/arrow-ne.svg"
-                  alt="Arrow"
-                  className="dark:invert p-1"
-                  width={24}
-                  height={24}
-                  priority
-                />
-              </button>
-            </form>
+            <SearchInput
+              value={search}
+              onChange={handleInputChange}
+              onSubmit={handleSearch}
+              searchUsed={searchUsed}
+              onClearSearch={handleClearSearch}
+            />
           </div>
         </div>
         {searchUsed ? (
@@ -62,12 +56,12 @@ const Home = () => {
         ) : (
           <FeaturesGrid />
         )}
-
-        <footer className="mt-8 text-xs text-neutral-500">
-          &copy; 2023 Username Checker. All rights reserved.
-        </footer>
       </div>
-    </>
+
+      <footer className="text-xs text-center text-neutral-500 m-8">
+        &copy; 2023 Username Checker. All rights reserved.
+      </footer>
+    </div>
   );
 };
 
