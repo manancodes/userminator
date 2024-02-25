@@ -24,7 +24,9 @@ const GithubCard = () => {
         </div>
       </div>
       <div className="z-20 ">
-        <h1 className="text-xl">This is a free and open source project</h1>
+        <h1 className="text-xl text-neutral-500">
+          This is a free and open source project
+        </h1>
       </div>
       <button
         className="z-20 text-sm font-medium border-2 p-1 py-2 rounded-full flex flex-row items-center justify-center absolute bottom-6 self-center w-10/12 group-hover:border-white group-hover:bg-white group-hover:text-neutral-600"
